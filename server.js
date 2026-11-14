@@ -35,7 +35,7 @@ app.post("/api/enroll", async (req, res) => {
   } catch (e) { console.error("Supabase xatosi:", e.message); }
   try {
     const r = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-      method: "POST", headers: { "Content-Type": "application/json },
+      method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ chat_id: ADMIN_CHAT_ID, text, parse_mode: "HTML" }),
     });
     const data = await r.json(); if (!data.ok) throw new Error(data.description); sent = true;
